@@ -6,13 +6,14 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>
-All Tags
+Set up Multiple Github Users
 </title>
 
   
   
   <meta name="author" content="" />
-  <meta name="description" content="" />
+  <meta name="description" content="Add keys to different users, set up different rsa files ssh-keygen -t rsa -b 4096 -C “your_email@example.com“ Enter a file in which to save the key (/home/.ssh/id_rsa): ~/.ssh/user1_id_rsa After set up, go to config: vim ~/.ssh/config
+host vimana511.github.com Hostname github.com User vimana511 PreferredAuthentications publickey IdentityFile ~/.ssh/v_id_rsa IdentitiesOnly yes host github.com Hostname user2.github.com User user2 PreferredAuthentications publickey IdentityFile ~/.ssh/id_rsa IdentitiesOnly yes  In your other repo, set git to other users: git config user." />
 
 
 
@@ -21,7 +22,7 @@ All Tags
 <meta name="generator" content="Hugo 0.58.3" />
 
 
-<link rel="canonical" href="vimana511.github.io/tags/" />
+<link rel="canonical" href="vimana511.github.io/post/set-up-multiple-github-users/" />
 <link rel="alternative" href="vimana511.github.io/index.xml" title="Sankta Instruejo" type="application/atom+xml" />
 
 <link href="vimana511.github.io/css/semantic.min.css" rel="stylesheet" />
@@ -36,16 +37,78 @@ All Tags
     <div class="flipper">
       <section class="front">
         
-<nav class="ui top secondary menu" style="overflow-x: auto">
+<nav class="ui top secondary menu">
   <div class="item">
     <i class="inverted big link bullseye icon dream-flip-toggle" title="Flip it!"></i>
   </div>
   <div class="item">
-    <a href="vimana511.github.io/"><i class="inverted big link home icon" title="Home"></i></a>
+    <a href="vimana511.github.io/">
+      <i class="inverted big link home icon" title="Home"></i>
+    </a>
   </div>
 </nav>
  
 <div class="ui centered grid">
+  <div class="fifteen wide mobile fifteen wide tablet eleven wide computer column post-list post-single-main">
+
+    <section class="ui top attached segment">
+      <a class="ui black right corner label" href="javascript:void(0)" onclick="savePostAsImg()">
+        <i class="save icon"></i>
+      </a>
+      <header>
+        <h1 class="ui header">
+          Set up Multiple Github Users
+          <div class="sub header">@  · Jan 1, 0001 · 1 min read · Update at Jan 1, 0001</div>
+        </h1>
+      </header>
+      <article class="markdown-body" style="margin-top: 2rem; font-size: 1.4rem;"><p>Add keys to different users, set up different rsa files
+ssh-keygen -t rsa -b 4096 -C “your_email@example.com“
+Enter a file in which to save the key (/home/.ssh/id_rsa): ~/.ssh/user1_id_rsa
+After set up, go to config:
+vim ~/.ssh/config</p>
+
+<pre><code class="language-bash">host vimana511.github.com
+    Hostname github.com
+    User vimana511
+    PreferredAuthentications publickey
+    IdentityFile ~/.ssh/v_id_rsa
+    IdentitiesOnly yes
+
+host github.com
+    Hostname user2.github.com
+    User user2 
+    PreferredAuthentications publickey
+    IdentityFile ~/.ssh/id_rsa
+    IdentitiesOnly yes
+</code></pre>
+
+<p>In your other repo, set git to other users:
+git config user.name “user1”
+git config user.email user@nili.ca</p>
+
+<p>Check the set up:
+  vim .git/config</p>
+
+<p>ssh -T git@vimana511.github.com
+  ssh -T git@user2.github.com</p>
+</article>
+    </section>
+
+    <footer class="ui attached segment dream-tags">
+      
+      <span>No Tags</span>
+      
+    </footer>
+
+    
+    <footer class="ui attached segment">
+      &copy; 2019. All rights reserved.
+    </footer>
+    
+
+    
+
+  </div>
   <div class="fifteen wide mobile fifteen wide tablet four wide computer column">
 
     
@@ -97,24 +160,6 @@ All Tags
 
 
   </div>
-  <div class="fifteen wide mobile fifteen wide tablet eleven wide computer column post-list">
-    
-    <div class="ui inverted segment">
-    
-      <h2 class="ui header">
-        All Tags
-        <div class="ui grey sub header">
-          
-          0 tags
-          
-        </div>
-      </h2>
-
-      
-      
-
-    </div>
-  </div>
 </div>
 
       </section>
@@ -165,7 +210,6 @@ All Tags
       
 
       
-        
       
     </section>
 

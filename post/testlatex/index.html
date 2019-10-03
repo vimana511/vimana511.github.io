@@ -6,13 +6,14 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>
-All Tags
+TestLatex
 </title>
 
   
   
-  <meta name="author" content="" />
-  <meta name="description" content="" />
+  <meta name="author" content="Author Name" />
+  <meta name="description" content="Cut out summary from your post content here.
+" />
 
 
 
@@ -21,7 +22,7 @@ All Tags
 <meta name="generator" content="Hugo 0.58.3" />
 
 
-<link rel="canonical" href="vimana511.github.io/tags/" />
+<link rel="canonical" href="vimana511.github.io/post/testlatex/" />
 <link rel="alternative" href="vimana511.github.io/index.xml" title="Sankta Instruejo" type="application/atom+xml" />
 
 <link href="vimana511.github.io/css/semantic.min.css" rel="stylesheet" />
@@ -36,16 +37,55 @@ All Tags
     <div class="flipper">
       <section class="front">
         
-<nav class="ui top secondary menu" style="overflow-x: auto">
+<nav class="ui top secondary menu">
   <div class="item">
     <i class="inverted big link bullseye icon dream-flip-toggle" title="Flip it!"></i>
   </div>
   <div class="item">
-    <a href="vimana511.github.io/"><i class="inverted big link home icon" title="Home"></i></a>
+    <a href="vimana511.github.io/">
+      <i class="inverted big link home icon" title="Home"></i>
+    </a>
   </div>
 </nav>
  
 <div class="ui centered grid">
+  <div class="fifteen wide mobile fifteen wide tablet eleven wide computer column post-list post-single-main">
+
+    <section class="ui top attached segment">
+      <a class="ui black right corner label" href="javascript:void(0)" onclick="savePostAsImg()">
+        <i class="save icon"></i>
+      </a>
+      <header>
+        <h1 class="ui header">
+          TestLatex
+          <div class="sub header">@ Author Name · Oct 3, 2019 · 1 min read · Update at Oct 3, 2019</div>
+        </h1>
+      </header>
+      <article class="markdown-body" style="margin-top: 2rem; font-size: 1.4rem;"><p>Cut out summary from your post content here.</p>
+
+<p>$\partial f\partial x = 9$
+The remaining content of your post.</p></article>
+    </section>
+
+    <footer class="ui attached segment dream-tags">
+      
+      
+      <a class="ui label" href="vimana511.github.io/tags/tag1" title="tag1">tag1</a>
+      
+      <a class="ui label" href="vimana511.github.io/tags/tag2" title="tag2">tag2</a>
+      
+      
+    </footer>
+
+    
+    <footer class="ui attached segment">
+      &copy; 2019. All rights reserved.
+    </footer>
+    
+
+    
+
+  </div>
   <div class="fifteen wide mobile fifteen wide tablet four wide computer column">
 
     
@@ -84,6 +124,18 @@ All Tags
 
 
 
+<section class="ui attached center aligned inverted segment dream-header-tags dream-tags">
+
+  
+  <a class="ui label" href="vimana511.github.io/tags/latex" title="latex">latex</a>
+  
+  <a class="ui label" href="vimana511.github.io/tags/tag1" title="tag1">tag1</a>
+  
+  <a class="ui label" href="vimana511.github.io/tags/tag2" title="tag2">tag2</a>
+  
+</section>
+
+
 
 
 
@@ -96,24 +148,6 @@ All Tags
 </section>
 
 
-  </div>
-  <div class="fifteen wide mobile fifteen wide tablet eleven wide computer column post-list">
-    
-    <div class="ui inverted segment">
-    
-      <h2 class="ui header">
-        All Tags
-        <div class="ui grey sub header">
-          
-          0 tags
-          
-        </div>
-      </h2>
-
-      
-      
-
-    </div>
   </div>
 </div>
 
@@ -165,7 +199,6 @@ All Tags
       
 
       
-        
       
     </section>
 
@@ -182,6 +215,35 @@ All Tags
 <script src="vimana511.github.io/js/html2canvas.min.js"></script>
 <script src="vimana511.github.io/js/bg.js"></script>
 <script src="vimana511.github.io/js/site.js"></script>
+<script type="text/javascript"
+  src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  tex2jax: {
+    inlineMath: [['$','$'], ['\\(','\\)']],
+    displayMath: [['$$','$$'], ['\[','\]']],
+    processEscapes: true,
+    processEnvironments: true,
+    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
+    TeX: { equationNumbers: { autoNumber: "AMS" },
+         extensions: ["AMSmath.js", "AMSsymbols.js"] }
+  }
+});
+</script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+    // Fix <code> tags after MathJax finishes running. This is a
+    // hack to overcome a shortcoming of Markdown. Discussion at
+    // https://github.com/mojombo/jekyll/issues/199
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i = 0; i &lt; all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+});
+</script>
 
 
 

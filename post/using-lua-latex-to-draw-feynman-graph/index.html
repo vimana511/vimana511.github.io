@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>
+Using Lua Latex (lua tikz) to Draw Feynman Graph
+</title>
+
+  
+  
+  <meta name="author" content="" />
+  <meta name="description" content="Here shows the 0vbb graph:
+\centering \begin{tikzpicture} \begin{feynman} \vertex (a1) {\(d\)}; \vertex[right=1.5cm of a1] (a2);%% W- goes out \vertex[above=2em of a2] (vv1);\vertex[right=1cm of vv1] (v1); \vertex[right=1cm of v1] (v3){\(e^{-}\)}; \vertex[above=4em of a2] (vv2);\vertex[right=1cm of vv2] (v2); \vertex[right=1cm of v2] (v4){\(e^{-}\)}; \vertex[right=2cm of a2] (a3) {\(u\)}; \vertex[below=1em of a1] (b1) {\(d\)}; \vertex[below=1em of b1] (b2) {\(u\)}; %top n \vertex[above=6em of a1] (aa1) {\(d\)};\vertex[right=1.5cm of aa1] (aa1v);%%W- goes out \vertex[above=1em of aa1] (aa2) {\(d\)}; \vertex[above=1em of aa2] (aa3) {\(u\)}; %% Equivalent way to obtain (d): %%top right p = udu \vertex[above=6em of a3] (c1) {\(u\)}; \vertex[above=1em of c1] (c2) {\(d\)}; \vertex[above=1em of c2] (c3) {\(u\)}; %%bottom right p = udu \vertex[below=1em of a3] (d1) {\(u\)}; \vertex[below=1em of d1] (d2) {\(d\)}; \diagram* { (a1) -- [fermion] (a2) -- [fermion] (a3), (b1) -- [fermion] (d1), (b2) -- [fermion] (d2), (aa1) -- [fermion] (aa1v) -- [fermion](c1), (aa2) -- [fermion] (c2), (aa3) -- [fermion] (c3), (a2) -- [boson,edge label=\(W^{-}\)] (v1), (v2) -- [boson,edge label=\(W^{-}\)] (aa1v), (v1) -- [fermion] (v3) (v2) -- [fermion] (v4) (v1) -- [plain] (v2) }; \draw [decoration={brace}, decorate] (b2." />
+
+
+
+
+
+<meta name="generator" content="Hugo 0.58.3" />
+
+
+<link rel="canonical" href="vimana511.github.io/post/using-lua-latex-to-draw-feynman-graph/" />
+<link rel="alternative" href="vimana511.github.io/index.xml" title="Sankta Instruejo" type="application/atom+xml" />
+
+<link href="vimana511.github.io/css/semantic.min.css" rel="stylesheet" />
+<link rel="stylesheet" href="vimana511.github.io/css/site.css" />
+<link rel="stylesheet" href="vimana511.github.io/css/github-markdown.css" />
+
+
+</head>
+
+<body>
+  <div class="flip-container">
+    <div class="flipper">
+      <section class="front">
+        
+<nav class="ui top secondary menu">
+  <div class="item">
+    <i class="inverted big link bullseye icon dream-flip-toggle" title="Flip it!"></i>
+  </div>
+  <div class="item">
+    <a href="vimana511.github.io/">
+      <i class="inverted big link home icon" title="Home"></i>
+    </a>
+  </div>
+</nav>
+ 
+<div class="ui centered grid">
+  <div class="fifteen wide mobile fifteen wide tablet eleven wide computer column post-list post-single-main">
+
+    <section class="ui top attached segment">
+      <a class="ui black right corner label" href="javascript:void(0)" onclick="savePostAsImg()">
+        <i class="save icon"></i>
+      </a>
+      <header>
+        <h1 class="ui header">
+          Using Lua Latex (lua tikz) to Draw Feynman Graph
+          <div class="sub header">@  · Oct 2, 2019 · 3 min read · Update at Oct 2, 2019</div>
+        </h1>
+      </header>
+      <article class="markdown-body" style="margin-top: 2rem; font-size: 1.4rem;"><p>Here shows the 0vbb graph:</p>
+
+<pre><code class="language-bash">\centering
+\begin{tikzpicture}
+\begin{feynman}
+\vertex (a1) {\(d\)};
+\vertex[right=1.5cm of a1] (a2);%% W- goes out
+\vertex[above=2em of a2] (vv1);\vertex[right=1cm of vv1] (v1);
+\vertex[right=1cm of v1] (v3){\(e^{-}\)};
+\vertex[above=4em of a2] (vv2);\vertex[right=1cm of vv2] (v2);
+\vertex[right=1cm of v2] (v4){\(e^{-}\)};
+\vertex[right=2cm of a2] (a3) {\(u\)};
+\vertex[below=1em of a1] (b1) {\(d\)};
+\vertex[below=1em of b1] (b2) {\(u\)};
+%top n
+\vertex[above=6em of a1] (aa1) {\(d\)};\vertex[right=1.5cm of aa1] (aa1v);%%W- goes out
+\vertex[above=1em of aa1] (aa2) {\(d\)};
+\vertex[above=1em of aa2] (aa3) {\(u\)};
+%% Equivalent way to obtain (d):
+%%top right p = udu
+\vertex[above=6em of a3] (c1) {\(u\)};
+\vertex[above=1em of c1] (c2) {\(d\)};
+\vertex[above=1em of c2] (c3) {\(u\)};
+%%bottom right p = udu
+\vertex[below=1em of a3] (d1) {\(u\)};
+\vertex[below=1em of d1] (d2) {\(d\)};
+\diagram* {
+
+(a1) -- [fermion] (a2) -- [fermion] (a3),
+
+(b1) -- [fermion] (d1),
+
+(b2) -- [fermion] (d2),
+
+(aa1) -- [fermion] (aa1v) -- [fermion](c1),
+
+(aa2) -- [fermion] (c2),
+
+(aa3) -- [fermion] (c3),
+
+(a2) -- [boson,edge label=\(W^{-}\)] (v1),
+
+(v2) -- [boson,edge label=\(W^{-}\)] (aa1v),
+
+(v1) -- [fermion] (v3)
+
+(v2) -- [fermion] (v4)
+
+(v1) -- [plain] (v2)
+
+};
+
+\draw [decoration={brace}, decorate] (b2.south west) -- (a1.north west)
+
+node [pos=0.5, left] {\(n\)};
+
+\draw [decoration={brace}, decorate] (aa1.south west) -- (aa3.north west)
+
+node [pos=0.5, left] {\(n\)};
+
+\draw [decoration={brace}, decorate] (c3.north east) -- (c1.south east)
+
+node [pos=0.5, right] {\(p\)};
+
+\draw [decoration={brace}, decorate] (a3.north east) -- (d2.south east)
+
+node [pos=0.5, right] {\(p\)};
+
+\end{feynman}
+
+\end{tikzpicture}\label{feynman}
+</code></pre>
+
+<p>Here shows the 2vbb graph:</p>
+
+<pre><code class="language-bash">\centering
+
+\begin{tikzpicture}
+
+\begin{feynman}
+\vertex (a1) {\(d\)};
+\vertex[right=1.5cm of a1] (a2);%% W- goes out
+\vertex[above=2em of a2] (vv1);\vertex[right=1cm of vv1] (v1);
+\vertex[above=0.2cm of v1] (blank11);
+\vertex[right=1cm of blank11] (v3){\(\nu_e\)};
+\vertex[below=0.4cm of v1] (blank1);
+\vertex[right=1cm of blank1] (v5){\(e^{-}\)}; % lower vertex
+\vertex[above=4em of a2] (vv2);\vertex[right=1cm of vv2] (v2);
+\vertex[below=0.2cm of v2] (blank22);
+\vertex[right=1cm of blank22] (v4){\(\nu_e\)};
+\vertex[above=0.4cm of v2] (blank2);
+\vertex[right=1cm of blank2] (v6){\(e^{-}\)};
+\vertex[right=2cm of a2] (a3) {\(u\)};
+\vertex[below=1em of a1] (b1) {\(d\)};
+\vertex[below=1em of b1] (b2) {\(u\)};
+%top n
+\vertex[above=6em of a1] (aa1) {\(d\)};\vertex[right=1.5cm of aa1] (aa1v);%%W- goes out
+\vertex[above=1em of aa1] (aa2) {\(d\)};
+\vertex[above=1em of aa2] (aa3) {\(u\)};
+%% Equivalent way to obtain (d):
+
+%%top right p = udu
+\vertex[above=6em of a3] (c1) {\(u\)};
+\vertex[above=1em of c1] (c2) {\(d\)};
+\vertex[above=1em of c2] (c3) {\(u\)};
+%%bottom right p = udu
+\vertex[below=1em of a3] (d1) {\(u\)};
+\vertex[below=1em of d1] (d2) {\(d\)};
+
+\diagram* {
+(a1) -- [fermion] (a2) -- [fermion] (a3),
+(b1) -- [fermion] (d1),
+(b2) -- [fermion] (d2),
+(aa1) -- [fermion] (aa1v) -- [fermion](c1),
+(aa2) -- [fermion] (c2),%d to d
+(aa3) -- [fermion] (c3),
+(a2) -- [boson,edge label=\(W^{-}\)] (v1),
+(v2) -- [boson,edge label=\(W^{-}\)] (aa1v),
+(v3) -- [fermion] (v1) % nue to W
+(v4) -- [fermion] (v2)
+(v1) -- [fermion] (v5) %W to e
+(v2) -- [fermion] (v6) %W to e
+% (v1) -- [plain] (v2) % connection of W
+};
+
+\draw [decoration={brace}, decorate] (b2.south west) -- (a1.north west)
+
+node [pos=0.5, left] {\(n\)};
+
+\draw [decoration={brace}, decorate] (aa1.south west) -- (aa3.north west)
+
+node [pos=0.5, left] {\(n\)};
+
+\draw [decoration={brace}, decorate] (c3.north east) -- (c1.south east)
+
+node [pos=0.5, right] {\(p\)};
+
+\draw [decoration={brace}, decorate] (a3.north east) -- (d2.south east)
+
+node [pos=0.5, right] {\(p\)};
+
+\end{feynman}
+
+\end{tikzpicture}\label{feynman}
+</code></pre>
+</article>
+    </section>
+
+    <footer class="ui attached segment dream-tags">
+      
+      <span>No Tags</span>
+      
+    </footer>
+
+    
+    <footer class="ui attached segment">
+      &copy; 2019. All rights reserved.
+    </footer>
+    
+
+    
+
+  </div>
+  <div class="fifteen wide mobile fifteen wide tablet four wide computer column">
+
+    
+<section class="ui top attached center aligned inverted segment">
+
+  <a id="tag-category-pop" class="ui right ribbon label" style="width: 1px;">
+    <i class="bars icon" title="Show menu"></i>
+  </a>
+
+  <div class="ui small circular image" style="margin-top: 1rem;">
+    
+    <img src="vimana511.github.io/img/avatar-ex.svg">
+    
+  </div>
+  
+  <h3 class="ui inverted header">
+  &#39;s blog<div class="sub header"></div>
+  </h3>
+
+  
+  <div class="ui inverted horizontal list">
+  
+    
+    <a class="item" href="vimana511.github.io/post">
+      <i class="archive icon" title="Archives"></i>
+    </a>
+    
+    <a class="item" href="vimana511.github.io/tags">
+      <i class="tags icon" title="All Tags"></i>
+    </a>
+    <a class="item" href="vimana511.github.io/categories">
+      <i class="cube icon" title="All Categories"></i>
+    </a>
+  </div>
+</section>
+
+
+
+
+
+
+<section class="ui bottom attached center aligned inverted segment">
+
+    
+    <p>© 2019 Sankta Instruejo</p>
+    
+    <p>Powered by <a href="https://gohugo.io/" target="_blank">Hugo</a> with theme <a href="https://github.com/g1eny0ung/hugo-theme-dream" target="_blank">Dream</a>.</p>
+</section>
+
+
+  </div>
+</div>
+
+      </section>
+      <section class="back">
+        <nav class="ui top secondary menu" style="overflow-x: auto">
+  <div class="item">
+    <i class="inverted big link bullseye icon dream-flip-toggle" title="Flip it!"></i>
+  </div>
+  
+  
+  
+  
+  
+</nav>
+
+<div class="ui centered grid about">
+  <div class="fifteen wide mobile fifteen wide tablet fifteen wide computer column">
+
+    <section class="ui stacked segments">
+      
+      <header class="ui inverted segment">
+      
+        <h2 class="ui header">
+          About
+        </h2>
+      </header>
+
+      
+      <article class="ui inverted segment markdown-body">
+      
+        <div class="ui stackable three column grid">
+          <div class="column">
+              
+          </div>
+          <div class="column">
+              
+          </div>
+          <div class="column">
+              
+          </div>
+        </div>
+      </article>
+
+      
+      <footer class="ui secondary segment">
+        &copy; 2019. All rights reserved.
+      </footer>
+      
+
+      
+      
+    </section>
+
+  </div>
+</div>
+
+      </section>
+    </div>
+  </div>
+
+  
+<script src="vimana511.github.io/js/jquery.min.js"></script>
+<script src="vimana511.github.io/js/semantic.min.js"></script>
+<script src="vimana511.github.io/js/html2canvas.min.js"></script>
+<script src="vimana511.github.io/js/bg.js"></script>
+<script src="vimana511.github.io/js/site.js"></script>
+
+
+
+</body>
+
+</html>

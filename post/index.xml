@@ -2,23 +2,34 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Posts on Sankta Instruejo</title>
-    <link>https://vimana511.github.io/post/</link>
+    <link>vimana511.github.io/post/</link>
     <description>Recent content in Posts on Sankta Instruejo</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&amp;copy; 2019. All rights reserved.</copyright>
-    <lastBuildDate>Thu, 03 Oct 2019 13:17:53 -0600</lastBuildDate>
+    <lastBuildDate>Wed, 02 Oct 2019 16:19:38 +0000</lastBuildDate>
     
-	<atom:link href="https://vimana511.github.io/post/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="vimana511.github.io/post/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
-      <title>First</title>
-      <link>https://vimana511.github.io/post/first/</link>
-      <pubDate>Thu, 03 Oct 2019 13:17:53 -0600</pubDate>
+      <title>Using Lua Latex (lua tikz) to Draw Feynman Graph</title>
+      <link>vimana511.github.io/post/using-lua-latex-to-draw-feynman-graph/</link>
+      <pubDate>Wed, 02 Oct 2019 16:19:38 +0000</pubDate>
       
-      <guid>https://vimana511.github.io/post/first/</guid>
-      <description></description>
+      <guid>vimana511.github.io/post/using-lua-latex-to-draw-feynman-graph/</guid>
+      <description>Here shows the 0vbb graph:
+\centering \begin{tikzpicture} \begin{feynman} \vertex (a1) {\(d\)}; \vertex[right=1.5cm of a1] (a2);%% W- goes out \vertex[above=2em of a2] (vv1);\vertex[right=1cm of vv1] (v1); \vertex[right=1cm of v1] (v3){\(e^{-}\)}; \vertex[above=4em of a2] (vv2);\vertex[right=1cm of vv2] (v2); \vertex[right=1cm of v2] (v4){\(e^{-}\)}; \vertex[right=2cm of a2] (a3) {\(u\)}; \vertex[below=1em of a1] (b1) {\(d\)}; \vertex[below=1em of b1] (b2) {\(u\)}; %top n \vertex[above=6em of a1] (aa1) {\(d\)};\vertex[right=1.5cm of aa1] (aa1v);%%W- goes out \vertex[above=1em of aa1] (aa2) {\(d\)}; \vertex[above=1em of aa2] (aa3) {\(u\)}; %% Equivalent way to obtain (d): %%top right p = udu \vertex[above=6em of a3] (c1) {\(u\)}; \vertex[above=1em of c1] (c2) {\(d\)}; \vertex[above=1em of c2] (c3) {\(u\)}; %%bottom right p = udu \vertex[below=1em of a3] (d1) {\(u\)}; \vertex[below=1em of d1] (d2) {\(d\)}; \diagram* { (a1) -- [fermion] (a2) -- [fermion] (a3), (b1) -- [fermion] (d1), (b2) -- [fermion] (d2), (aa1) -- [fermion] (aa1v) -- [fermion](c1), (aa2) -- [fermion] (c2), (aa3) -- [fermion] (c3), (a2) -- [boson,edge label=\(W^{-}\)] (v1), (v2) -- [boson,edge label=\(W^{-}\)] (aa1v), (v1) -- [fermion] (v3) (v2) -- [fermion] (v4) (v1) -- [plain] (v2) }; \draw [decoration={brace}, decorate] (b2.</description>
+    </item>
+    
+    <item>
+      <title>Set up Multiple Github Users</title>
+      <link>vimana511.github.io/post/set-up-multiple-github-users/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>vimana511.github.io/post/set-up-multiple-github-users/</guid>
+      <description>Add keys to different users, set up different rsa files ssh-keygen -t rsa -b 4096 -C “your_email@example.com“ Enter a file in which to save the key (/home/.ssh/id_rsa): ~/.ssh/user1_id_rsa After set up, go to config: vim ~/.ssh/config
+host vimana511.github.com Hostname github.com User vimana511 PreferredAuthentications publickey IdentityFile ~/.ssh/v_id_rsa IdentitiesOnly yes host github.com Hostname user2.github.com User user2 PreferredAuthentications publickey IdentityFile ~/.ssh/id_rsa IdentitiesOnly yes  In your other repo, set git to other users: git config user.</description>
     </item>
     
   </channel>
